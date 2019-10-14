@@ -1,4 +1,4 @@
-// list  all elements
+// list  all elements ( the div blocks inside the HTML file)
 
 const start = document.getElementById("start");
 const quiz = document.getElementById("quiz");
@@ -48,6 +48,9 @@ let runningQuestion = 0;
 let count = 4;
 let score = 0;
 var myVar ;
+
+// create functions that will render a given question
+
 function renderQuestion(){
     let q = questions[runningQuestion];
     question.innerHTML = "<p>"+ q.title + "</p>";
@@ -55,6 +58,8 @@ function renderQuestion(){
     choiceB.innerHTML = q.choices[1];
     choiceC.innerHTML = q.choices[2];
 }
+
+// create a function  for the start of the quiz
 
 start.addEventListener("click", startQuiz);
 function startQuiz () {
@@ -65,6 +70,7 @@ function startQuiz () {
     rendertimer ();
 
 }
+// create function for timer , user has a limited amount of time to answer the question
 
 function rendertimer () {
     myVar = setInterval (function () {
@@ -78,6 +84,8 @@ function rendertimer () {
     }, 10000 ) ;
 
 }
+
+// this function checks if the user's answer is correct or wrong 
 
 function checkAnswer(answer) {
     console.log(answer);
@@ -97,6 +105,8 @@ function checkAnswer(answer) {
         renderscore();
     }
     
+
+// function to keep track of the user's score
 
 function renderscore() {
     quiz.style.display ="none";
